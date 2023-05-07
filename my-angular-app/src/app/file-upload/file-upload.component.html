@@ -1,4 +1,9 @@
-
-<input type="file" (change)="onFileSelected($event)" />
-<button (click)="uploadFile()">Cargar</button>
-
+<div>
+    <input type="file" (change)="onFileSelected($event)">
+    <button (click)="onUpload()" [disabled]="!selectedFile">Subir</button>
+  </div>
+  
+  <div *ngIf="rocCurveImage">
+    <img [src]="rocCurveImage" alt="Curva ROC">
+  </div>
+  

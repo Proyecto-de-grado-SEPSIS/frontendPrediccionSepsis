@@ -11,24 +11,27 @@ import { HttpClient } from '@angular/common/http';
 export class FileUploadComponent {
 
   selectedFile: File | null = null;
+  rocCurveImage: string | null = null;  // Definir la propiedad rocCurveImage
 
   constructor(private http: HttpClient) { }
 
-  onFileSelected(event: any): void {
+  onFileSelected(event: any) {
     this.selectedFile = event.target.files[0];
   }
 
-  uploadFile(): void {
+  onUpload() {
     if (this.selectedFile) {
-      const formData = new FormData();
-      formData.append('file', this.selectedFile);
-      this.http.post('http://localhost:8000/upload/', formData)
-        .subscribe(response => {
-          console.log(response);
-          // Manejar la respuesta del backend aquí
-        });
+      const uploadData = new FormData();
+      uploadData.append('file', this.selectedFile, this.selectedFile.name);
+      
+      this.http.post<any>('http://localhost:8000/api/upload/', uploadData).subscribe(
+        response => {
+          this.rocCurveImage = response.rocCurveImage;
+        },
+        error => {
+          console.log(error);
+        }
+      );
     }
   }
-
-
 }
