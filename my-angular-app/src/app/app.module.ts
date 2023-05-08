@@ -6,6 +6,7 @@ import { FileUploadComponent } from './file-upload/file-upload.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ChartsResultsComponent } from './charts-results/charts-results.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    NgxChartsModule
+    NgxChartsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
