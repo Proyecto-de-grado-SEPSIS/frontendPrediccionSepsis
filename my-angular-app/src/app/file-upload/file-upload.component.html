@@ -3,7 +3,6 @@
     <button (click)="onUpload()" [disabled]="!selectedFile">Subir</button>
   </div>
   
-  <div *ngIf="rocCurveImage">
-    <img [src]="rocCurveImage" alt="Curva ROC">
-  </div>
-  
+    <div *ngFor="let image of allImages" class="images">
+      <img class="image" [src]="image.data" alt="Image">
+    </div>
