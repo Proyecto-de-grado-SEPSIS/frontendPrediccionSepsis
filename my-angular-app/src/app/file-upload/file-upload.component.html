@@ -1,15 +1,22 @@
+
+
+
 <div class="center">
-    <input type="file" (change)="onFileSelected($event)">
+<!--
+
+  <input type="file" accept=".xls,.xlsx, .csv" (change)="onFileSelected($event)">
+-->
+  <input type="file" (change)="onFileSelected($event)">
     <button (click)="onUpload()" [disabled]="!selectedFile">Subir</button>
   </div>
 
   <div class="center" *ngIf="rocCurveImage">
     <img [src]="rocCurveImage" alt="Curva ROC">
   </div>
-<div class="center">
+<div [@openClose]="isOpen ? 'open' : 'closed'"  class="center">
   <svg id="circle-lines" width="1000px" height="1000px" viewBox="0 0 160 160">
     <defs>
-      <g id="lines" style="stroke: rgb(146, 141, 141);" >
+      <g id="lines">
         <line id="circle-lines-right"  x1=" 20" x2=" 69" />
         <line id="circle-lines-left"   x1="-20" x2="-69" />
         <line id="circle-lines-top"    y1=" 20" y2=" 69" />
@@ -35,7 +42,6 @@
       <use xlink:href="#lines" transform="rotate(75)"/>
       <use xlink:href="#lines" transform="rotate(80)"/>
       <use xlink:href="#lines" transform="rotate(85)"/>
-
     </g>
   </svg>
 </div>
