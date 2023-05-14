@@ -7,13 +7,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { ChartsResultsComponent } from './charts-results/charts-results.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HomeComponent } from './home/home.component';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
     FileUploadComponent,
-    ChartsResultsComponent
+    ChartsResultsComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
