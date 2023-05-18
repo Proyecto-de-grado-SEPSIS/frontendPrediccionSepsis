@@ -143,5 +143,8 @@ button{
   text-transform: uppercase;
 
   color: #FFFFFF;
-
+  box-shadow: none;
+}
+button:hover{
+  background: #0f2b41;
 }

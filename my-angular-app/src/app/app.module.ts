@@ -4,7 +4,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FileUploadComponent } from './file-upload/file-upload.component';
 import { HttpClientModule } from '@angular/common/http';
-import { ChartsResultsComponent } from './charts-results/charts-results.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './home/home.component';
@@ -15,7 +14,6 @@ import { HomeComponent } from './home/home.component';
   declarations: [
     AppComponent,
     FileUploadComponent,
-    ChartsResultsComponent,
     HomeComponent
   ],
   imports: [
