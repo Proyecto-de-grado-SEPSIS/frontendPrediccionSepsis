@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -8,4 +9,21 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'my-angular-app';
+
+  constructor(private router: Router) { }
+
+  irAlDashboard(){
+    this.router.navigateByUrl('/dashboard');
+  }
+  irAlHome(){
+    this.router.navigateByUrl('/home');
+  }
+  irAlAboutUs(){
+    this.router.navigateByUrl('/about-us');
+  }
+
+  logOut(){
+
+  }
+
 }

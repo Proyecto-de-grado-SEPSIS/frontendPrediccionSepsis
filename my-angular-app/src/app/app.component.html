@@ -1,10 +1,10 @@
 <nav class="nav-bar">
 
   <ul>
-    <li class="li_op" id="logout">LOGOUT</li>
-    <li class="li_op"><a href="#">ABOUT US</a></li>
-    <li class="li_op"><a href="#">DASHBOARD</a></li>
-    <li class="li_op"><a href="#">HOME</a></li>
+    <li class="li_op" id="logout" (click)="logOut()">LOGOUT</li>
+    <li class="li_op"><a (click)="irAlAboutUs()">ABOUT US</a></li>
+    <li class="li_op"><a (click)="irAlDashboard()">DASHBOARD</a></li>
+    <li class="li_op"><a (click)="irAlHome()">HOME</a></li>
     <img src="../assets/logo_navbar.png" alt="logo_navbar">
   </ul>
 </nav>
