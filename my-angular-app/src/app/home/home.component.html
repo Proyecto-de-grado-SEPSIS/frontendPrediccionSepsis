@@ -8,35 +8,33 @@
 </div>
 <div id="pregunta">
   <h3>¿Cómo funciona?</h3>
-  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto deserunt, possimus labore iure velit totam! Ex, sed illum sint provident, soluta ea eaque amet quo, est tempore sapiente iste repudiandae!</p>
+
 </div>
-<div id="table_example">
-  <div class="docs">
-    <table>
-      <tr>
-        <th>IdCliente</th>
-      <th>Sexo</th>
-      <th>IdAtencion</th>
-      <th>IdConsulta</th>
-      <th>Temperatura</th>
-      <th>Frecuencia_Cardiaca</th>
-      <th>Frecuencia_Respiratoria</th>
-      <th>Presion_Sistolica</th>
-      <th>Presion_Diastolica</th>
-      <th>Diagnosticos_Ingreso</th>
-      <th>Temperatura_Consulta</th>
-      <th>FC_Consulta</th>
-      <th>FR_Consulta</th>
-      <th>PS_Consulta</th>
-      <th>PD_Consulta</th>
-      <th>DesEnfermedadActual</th>
-      <th>DesPlanYConcepto</th>
-      <th>Diagnosticos_Consulta</th>
-      <th>Variable objetivo</th>
-    </tr>
-  </table>
-  </div>
-  <div class="docs">
-    <img src="../../assets/undraw_doctors_p6aq 1.png" alt="silueta doctores">
-  </div>
+<img src="../../assets/undraw_doctors_p6aq 1.png" alt="silueta doctores">
+<div class="docs">
 </div>
+<p class="p_desc">El sistema de predicción utiliza un archivo .csv con una estructura de datos especifica para su correcto funcionamiento, la estrucutra de las columnas o indices del archivo debe estar compuesto por las siguientes columnas:</p>
+<ol>
+  <li>IdCliente</li>
+  <li>Sexo</li>
+  <li>IdAtencion</li>
+  <li>IdConsulta</li>
+  <li>Temperatura</li>
+  <li>Frecuencia_Cardiaca</li>
+  <li>Frecuencia_Respiratoria</li>
+  <li>Presion_Sistolica</li>
+  <li>Presion_Diastolica</li>
+  <li>Diagnosticos_Ingreso</li>
+  <li>Temperatura_Consulta</li>
+  <li>FC_Consulta</li>
+  <li>FR_Consulta</li>
+  <li>PS_Consulta</li>
+  <li>PD_Consulta</li>
+  <li>DesEnfermedadActual</li>
+  <li>DesPlanYConcepto</li>
+  <li>Diagnosticos_Consulta</li>
+  <li>Variable objetivo</li>
+</ol>
+<p class="p_desc">Se debe seguir la estructura de las columnas, tanto en orden como en nombre para el correcto funcionamiento, demás dentro de la estructura del CSV se debe tener en cuenta que la separacion este debe seguir la estructura de que cada contenido de la columna vaya entre comillas y luego separado por comas, como en el siguiente ejemplo:</p>
+<p id="sep_ej"><b id="comi_ej">"</b>Contenido_columna <b id="comi_ej">"</b><b id="coma_ej">,</b><b id="comi_ej">"</b>. . .<b id="comi_ej">"</b> <b id="coma_ej">,</b></p>
+<button (click)="irAlDashboard()">SIGUIENTE</button>
