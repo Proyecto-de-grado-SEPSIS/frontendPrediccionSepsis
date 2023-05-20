@@ -32,15 +32,15 @@ export class FileUploadComponent {
   selectedFile: File | null = null;
   rocCurveImage: string | null = null;  // Definir la propiedad rocCurveImage
   isOpen = true;
+  fileName: string | undefined;
 
   constructor(private http: HttpClient) { }
 
   onFileSelected(event: any) {
+    //Cargo el archivo 
     this.selectedFile = event.target.files[0];
-  }
+    this.fileName = this.selectedFile?.name;
 
-  onUpload() {
-    this.isOpen = !this.isOpen;
     if (this.selectedFile) {
       const uploadData = new FormData();
       uploadData.append('file', this.selectedFile, this.selectedFile.name);
@@ -54,5 +54,12 @@ export class FileUploadComponent {
         }
       );
     }
+
+  }
+
+  onUpload() {
+    //this.isOpen = !this.isOpen;
+
+
   }
 }

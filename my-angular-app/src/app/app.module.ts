@@ -9,7 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './home/home.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { MatCardModule } from '@angular/material/card';
-
+import {MatIconModule} from '@angular/material/icon';
 
 
 @NgModule({
@@ -25,7 +25,8 @@ import { MatCardModule } from '@angular/material/card';
     HttpClientModule,
     NgxChartsModule,
     BrowserAnimationsModule,
-    MatCardModule
+    MatCardModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

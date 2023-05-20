@@ -1,5 +1,6 @@
 .center{
   margin: auto;
-  width: fit-content;
-  color: white;
+  width: 500px;
+  color: rebeccapurple;
+  border: 1px solid black;
 }
