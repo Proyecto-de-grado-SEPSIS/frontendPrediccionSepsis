@@ -1,0 +1,111 @@
+.title h1{
+  width: 303px;
+  height: 73px;
+  left: 123px;
+  top: 127px;
+  display: inline;
+  padding-left: 30px;
+
+  text-align: justify;
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 34px;
+  letter-spacing: 0.25px;
+}
+#titulo{
+ padding-top: 20px;
+}
+.title{
+  padding-top: 30px;
+}
+
+#logo{
+  padding: 0px 20px;
+  padding-bottom: 20px;
+  display: inline;
+  width: 53.96px;
+  height: 52.39px;
+
+  top: 137px;
+  float: right;
+
+  mix-blend-mode: normal;
+}
+#separador{
+  margin: 25px 30px;
+  width: 97%;
+  height: 0px;
+  top: 221px;
+  display: block;
+  border: 1px solid #061528;
+}
+.pregunta{
+  display: block;
+  width: fit-content;
+   box-sizing:border-box;
+  margin-left: 0%;
+
+
+}
+h3{
+  width: fit-content;
+  height: fit-content;
+  padding: 25px;
+  display: flex;
+  flex-grow: 1;
+
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 23px;
+}
+
+img{
+  float: right;
+}
+.docs{
+  display: inline-block;
+}
+.p_desc{
+  display: block;
+  padding-left: 30px;
+  width: 559px;
+  height: fit-content;
+  left: 123px;
+  top: 302px;
+
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 22px;
+  /* or 138% */
+
+  letter-spacing: 0.25px;
+
+  color: #061528;
+}
+.integrantes{
+ display: inline-flex;
+ width: 50%;
+ padding: 0px 30px;
+}
+mat-card{
+  margin: 0px 10px;
+  box-shadow: none;
+
+}
+.nombre_prof{
+  background: white;
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: 0.25px;
+  color: #061528;
+
+}
