@@ -29,18 +29,26 @@ import {  trigger, state, style, animate, transition } from '@angular/animations
 
 export class FileUploadComponent {
 
+  files:any[]=[];
   selectedFile: File | null = null;
   rocCurveImage: string | null = null;  // Definir la propiedad rocCurveImage
   isOpen = true;
-  fileName: string | undefined;
+
 
   constructor(private http: HttpClient) { }
 
   onFileSelected(event: any) {
-    //Cargo el archivo 
-    this.selectedFile = event.target.files[0];
-    this.fileName = this.selectedFile?.name;
+    //Cargo el archivo
+    this.files = event.target
+    console.log("file", this.files)
 
+  }
+  onRemove(event:any){
+    this.files.splice(this.files.indexOf(event),1);
+  }
+
+  onUpload() {
+    //this.isOpen = !this.isOpen;
     if (this.selectedFile) {
       const uploadData = new FormData();
       uploadData.append('file', this.selectedFile, this.selectedFile.name);
@@ -54,11 +62,6 @@ export class FileUploadComponent {
         }
       );
     }
-
-  }
-
-  onUpload() {
-    //this.isOpen = !this.isOpen;
 
 
   }

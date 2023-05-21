@@ -1,31 +1,17 @@
-
-
-
-<div class="center" >
-
-  <input type="file" accept=".csv" hidden (change)="onFileSelected($event)" #fileUpload>
-
+<div class="custom-dropzone" ngx-dropzone (change)="onFileSelected($event)">
+  <ngx-dropzone-label>Drop your data here.</ngx-dropzone-label>
+  <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" [removable]="true" *ngFor="let f of files" [file]="f" (removed)="onRemove(f)"></ngx-dropzone-image-preview>
 
 </div>
 
-<div  class="center" (click)="fileUpload.click()" (fileDropped)="onFileSelected($event)">
-  <span>
-    Aqui los archivos!!!!
-  </span>
-
-  {{fileName || "No file uploaded yet."}}
-
-   <button mat-mini-fab color="primary" class="upload-btn">
-       <mat-icon>attach_file</mat-icon>
-   </button>
-</div>
-
-<div class="center" *ngIf="rocCurveImage">
+<div *ngIf="rocCurveImage">
     <img [src]="rocCurveImage" alt="Curva ROC">
 </div>
 
 
-<div [@openClose]="isOpen ? 'open' : 'closed'"  class="center">
+
+
+<div [@openClose]="isOpen ? 'open' : 'closed'">
 </div>
 
 
