@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {  trigger, state, style, animate, transition } from '@angular/animations';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-file-upload',
@@ -35,12 +36,12 @@ export class FileUploadComponent {
   isOpen = true;
 
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   onFileSelected(event: any) {
     //Cargo el archivo
-    this.files = event.target
-    console.log("file", this.files)
+    this.files.push(...event.addedFiles)
+    console.log("file", this.files[0])
 
   }
   onRemove(event:any){

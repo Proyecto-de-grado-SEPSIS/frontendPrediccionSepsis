@@ -1,7 +1,26 @@
-<div class="custom-dropzone" ngx-dropzone (change)="onFileSelected($event)">
-  <ngx-dropzone-label>Drop your data here.</ngx-dropzone-label>
-  <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" [removable]="true" *ngFor="let f of files" [file]="f" (removed)="onRemove(f)"></ngx-dropzone-image-preview>
+<div class="title">
+  <h1 id="titulo" >Sistema de<img id="logo" src="../../assets/Logo.svg" alt="Escudo"></h1>
+  <br>
+  <h1> predicción de sepsis </h1>
 
+  <hr id="separador">
+</div>
+<div id="pregunta">
+  <h3>Cargar archivos</h3>
+</div>
+<p class="p_desc">Es importante recordar que solo se aceptan archivos csv, con la estructura estableciada anteriormente</p>
+
+<img class="img_compl" src="../../assets/undraw_add_files.svg" alt="">
+
+<div class="custom-dropzone" accept=".csv" ngx-dropzone (change)="onFileSelected($event)">
+  <ngx-dropzone-label>
+    <img class="file_icon" src="../../assets/iconFile.svg" alt="">
+    <p class="p_compl">Arrastra tu documento aqui.</p>
+    <img src="../../assets/complemento_dragdrop.svg" alt="">
+    <button>seleccionar archivo</button>
+  </ngx-dropzone-label>
+
+  <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" [removable]="true" *ngFor="let f of files" [file]="f" (removed)="onRemove(f)"></ngx-dropzone-image-preview>
 </div>
 
 <div *ngIf="rocCurveImage">
