@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {  trigger, state, style, animate, transition } from '@angular/animations';
+import { Resultado } from '../model/resultado';
 
 
 @Component({
@@ -32,7 +33,7 @@ export class FileUploadComponent {
 
   files:any[]=[];
   selectedFile: File | null = null;
-  rocCurveImage: string | null = null;  // Definir la propiedad rocCurveImage
+  resultados: Resultado | undefined;// Definir la propiedad rocCurveImage
   isOpen = true;
 
 
@@ -56,7 +57,7 @@ export class FileUploadComponent {
 
       this.http.post<any>('http://localhost:8000/api/upload/', uploadData).subscribe(
         response => {
-          this.rocCurveImage = response.rocCurveImage;
+          this.resultados = response;
         },
         error => {
           console.log(error);
