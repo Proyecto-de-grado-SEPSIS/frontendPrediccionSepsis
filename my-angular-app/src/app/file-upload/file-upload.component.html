@@ -6,6 +6,8 @@
   <hr id="separador">
 </div>
 <div [@openClose]="isOpen ? 'open' : 'closed'">
+
+  <div>
   <div id="pregunta">
     <h3>Cargar archivos</h3>
   </div>
@@ -25,8 +27,6 @@
   </div>
   <button id="btn-subir" (click)="onUpload()" *ngIf="files[0]" >Subir</button>
 </div>
-
-<div>
 
 
 </div>
