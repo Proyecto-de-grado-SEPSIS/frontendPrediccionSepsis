@@ -154,3 +154,6 @@ button{
 button:hover{
   background: #0f2b41;
 }
+#btn-subir{
+  margin: 30px;
+}

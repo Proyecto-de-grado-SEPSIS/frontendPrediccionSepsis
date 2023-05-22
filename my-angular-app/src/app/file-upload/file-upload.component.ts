@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {  trigger, state, style, animate, transition } from '@angular/animations';
-import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-file-upload',
@@ -14,8 +14,8 @@ import { Router } from '@angular/router';
         stroke: '#56C596'
       })),
       state('closed', style({
-        height: 'fit-content',
-        stroke: 'red'
+        height: '0px',
+
       })),
       transition('open => closed', [
         animate('2s')
@@ -36,7 +36,7 @@ export class FileUploadComponent {
   isOpen = true;
 
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient) { }
 
   onFileSelected(event: any) {
     //Cargo el archivo
@@ -49,10 +49,10 @@ export class FileUploadComponent {
   }
 
   onUpload() {
-    //this.isOpen = !this.isOpen;
-    if (this.selectedFile) {
+    this.isOpen = !this.isOpen;
+    if (this.files[0]) {
       const uploadData = new FormData();
-      uploadData.append('file', this.selectedFile, this.selectedFile.name);
+      uploadData.append('file', this.files[0], this.files[0].name);
 
       this.http.post<any>('http://localhost:8000/api/upload/', uploadData).subscribe(
         response => {
@@ -63,7 +63,5 @@ export class FileUploadComponent {
         }
       );
     }
-
-
   }
 }
