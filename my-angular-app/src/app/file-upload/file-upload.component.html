@@ -1,0 +1,8 @@
+<div>
+    <input type="file" (change)="onFileSelected($event)">
+    <button (click)="onUpload()" [disabled]="!selectedFile">Subir</button>
+  </div>
+  
+    <div *ngFor="let image of allImages" class="images">
+      <img class="image" [src]="image.data" alt="Image">
+    </div>
