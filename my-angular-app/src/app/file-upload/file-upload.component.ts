@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {  trigger, state, style, animate, transition } from '@angular/animations';
-import { Resultado } from '../model/resultado';
-
+import { ApiService } from '../api.service';
+interface Image {
+  name: string;
+  data: string;
+}
 
 @Component({
   selector: 'app-file-upload',
@@ -11,11 +14,10 @@ import { Resultado } from '../model/resultado';
   animations: [
     trigger('openClose', [
       state('open', style({
-        height: 'fit-content',
-        stroke: '#56C596'
+
       })),
       state('closed', style({
-        height: '0px',
+        display: 'none',
 
       })),
       transition('open => closed', [
@@ -25,6 +27,23 @@ import { Resultado } from '../model/resultado';
         animate('1s')
       ]),
     ]),
+    trigger('bigSmall',[
+      state('small', style({
+        display: 'none'
+      })),
+      state('big', style({
+        float: 'right',
+        width: '1042px',
+        height: '701px'
+
+      })),
+      transition('small => big', [
+        animate('2s')
+      ]),
+      transition('big => small', [
+        animate('1s')
+      ]),
+    ])
   ],
 
 })
@@ -32,17 +51,19 @@ import { Resultado } from '../model/resultado';
 export class FileUploadComponent {
 
   files:any[]=[];
-  allImages: Image[] = [];// Definir la propiedad rocCurveImage
+  allImages: Image[] = [];
   isOpen = true;
+  isBig = true;
+  zoomImage!: Image;
 
 
-  constructor(private http: HttpClient) { }
+
+  constructor(private http: HttpClient, private api: ApiService) { }
 
   onFileSelected(event: any) {
     //Cargo el archivo
     this.files.push(...event.addedFiles)
     console.log("file", this.files[0])
-
   }
   onRemove(event:any){
     this.files.splice(this.files.indexOf(event),1);
@@ -54,7 +75,7 @@ export class FileUploadComponent {
       const uploadData = new FormData();
       uploadData.append('file', this.files[0], this.files[0].name);
 
-      this.http.post<any>('http://localhost:8000/api/upload/', uploadData).subscribe(
+      this.api.uploadFile(uploadData).subscribe(
         response => {
           this.allImages = response.images as Image[];
         },
@@ -62,6 +83,17 @@ export class FileUploadComponent {
           console.log(error);
         }
       );
+
+    }
+
+  }
+
+  openUp(image: Image){
+    if(!this.isBig){
+      this.isBig=true
+      this.zoomImage=image
+    }else{
+      this.isBig=false
     }
   }
 }

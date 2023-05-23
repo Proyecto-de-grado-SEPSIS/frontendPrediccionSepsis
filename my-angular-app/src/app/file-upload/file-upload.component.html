@@ -5,16 +5,13 @@
 
   <hr id="separador">
 </div>
-<div [@openClose]="isOpen ? 'open' : 'closed'">
 
-  <div>
+<div [@openClose]="isOpen ? 'open' : 'closed'">
   <div id="pregunta">
     <h3>Cargar archivos</h3>
   </div>
   <p class="p_desc">Es importante recordar que solo se aceptan archivos csv, con la estructura estableciada anteriormente</p>
-
   <img class="img_compl" src="../../assets/undraw_add_files.svg" alt="">
-
   <div class="custom-dropzone" accept=".csv" ngx-dropzone (change)="onFileSelected($event)">
     <ngx-dropzone-label>
       <img class="file_icon" src="../../assets/iconFile.svg" alt="">
@@ -22,16 +19,26 @@
       <img src="../../assets/complemento_dragdrop.svg" alt="">
       <button>seleccionar archivo</button>
     </ngx-dropzone-label>
-
     <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" [removable]="true" *ngFor="let f of files" [file]="f" (removed)="onRemove(f)"></ngx-dropzone-image-preview>
   </div>
   <button id="btn-subir" (click)="onUpload()" *ngIf="files[0]" >Subir</button>
 </div>
 
 
+<div *ngFor="let image of allImages" class="images">
+  
+  <img class="image" [src]="image.data" alt="Image" (click)="openUp(image)">
+  <p class="p_desc" *ngIf="image.name ===  'barplot'">Grafica de recuento de valores en la columna sexo de la vista minable</p>
+  <p class="p_desc" *ngIf="image.name ===  'lineplot'">Grafica de recuento de valores en la columna sexo de la vista minable</p>
+  <p class="p_desc" *ngIf="image.name ===  'boxplot'">Grafica de recuento de valores en la columna sexo de la vista minable</p>
+  <p class="p_desc" *ngIf="image.name ===  'distribution'">Grafica de recuento de valores en la columna sexo de la vista minable</p>
+  <p class="p_desc" *ngIf="image.name ===  'violinplot'">Grafica de recuento de valores en la columna sexo de la vista minable</p>
+  <p class="p_desc" *ngIf="image.name ===  'violinplot2'">Grafica de recuento de valores en la columna sexo de la vista minable</p>
+  <p class="p_desc" *ngIf="image.name ===  'violinplot3'">Grafica de recuento de valores en la columna sexo de la vista minable</p>
+  <div id="pregunta" *ngIf="image.name ===  'confusion_matrix_logistic'">
+    <h3>Resultado Modelo</h3>
+  </div>
+  <p class="p_desc" *ngIf="image.name ===  'confusion_matrix_logistic'">Grafica de recuento de valores en la columna sexo de la vista minable</p>
+  <p class="p_desc" *ngIf="image.name ===  'confusion_matrix_decision_tree'">Grafica de recuento de valores en la columna sexo de la vista minable</p>
+  <p class="p_desc" *ngIf="image.name ===  'roc_curve'">Grafica de recuento de valores en la columna sexo de la vista minable</p>
 </div>
-<div *ngIf="resultados">
-  <img [src]="resultados" alt="Curva ROC">
-</div>
-
-
