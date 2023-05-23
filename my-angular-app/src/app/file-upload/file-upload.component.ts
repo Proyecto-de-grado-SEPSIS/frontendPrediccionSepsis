@@ -32,8 +32,7 @@ import { Resultado } from '../model/resultado';
 export class FileUploadComponent {
 
   files:any[]=[];
-  selectedFile: File | null = null;
-  resultados: Resultado | undefined;// Definir la propiedad rocCurveImage
+  allImages: Image[] = [];// Definir la propiedad rocCurveImage
   isOpen = true;
 
 
@@ -57,7 +56,7 @@ export class FileUploadComponent {
 
       this.http.post<any>('http://localhost:8000/api/upload/', uploadData).subscribe(
         response => {
-          this.resultados = response;
+          this.allImages = response.images as Image[];
         },
         error => {
           console.log(error);
