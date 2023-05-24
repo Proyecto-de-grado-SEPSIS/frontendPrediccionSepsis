@@ -1,9 +1,9 @@
 # frontendPrediccionSepsis
 Frontend del proyecto de grado de sepsis
-
-#Instalación 
 # Version
 Angular CLI 16.0.0
+# Instalación 
+
 
 ## Windows 
 1. correr los comandos
