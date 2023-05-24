@@ -42,13 +42,13 @@
   display: block;
   border: 1px solid #061528;
 }
-
 #pregunta{
-  display: block;
+  display: inline-block;
   width: fit-content;
   box-sizing:border-box;
   margin-left: 0%;
-  color: #061528;
+
+
 }
 h3{
   width: fit-content;
@@ -65,7 +65,7 @@ h3{
   color: #061528;
 }
 
-.img_compl{
+img{
   float: right;
 }
 .docs{
@@ -75,7 +75,6 @@ h3{
   display: block;
   padding-left: 30px;
   width: 559px;
-  box-sizing:border-box;
   height: fit-content;
   left: 123px;
   top: 302px;
@@ -90,39 +89,18 @@ h3{
   letter-spacing: 0.25px;
 
   color: #061528;
-}
-.integrantes{
- display: inline-flex;
- width: 50%;
- padding: 0px 30px;
-}
 
-.nombre_prof{
-  background: white;
+}
+ol{
+  padding-left: 60px;
+  width: 559px;
+  columns: 2;
+  -webkit-columns: 2;
+  -moz-columns: 2;
+
   font-family: 'Ubuntu';
   font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 22px;
-  letter-spacing: 0.25px;
-  color: #061528;
-
-}
-
-.custom-dropzone{
-  width: 658px;
-  height: 388px;
-  border: 1px solid #061528;
-  margin: 30px;
-
-}
-.file_icon{
-  margin: auto;
-}
-.p_compl{
-  font-family: 'Ubuntu';
-  font-style: normal;
-  font-weight: 300;
+  font-weight: 400px;
   font-size: 16px;
   line-height: 22px;
   /* or 138% */
@@ -131,17 +109,34 @@ h3{
 
   color: #061528;
 }
+#sep_ej{
+  padding-left: 40px;
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 22px;
+  line-height: 22px;
+  color: #BA83FF;
+
+}
+#comi_ej{
+ color: #00FFC3;
+}
+#coma_ej{
+  color: #FFC300;
+}
 button{
-  height: 43px;
-  left: 345px;
-  right: 883px;
-  top: calc(50% - 43px/2 + 117.5px);
-  display: block;
+  margin: 30px 30px;
+  width: 186px;
+  height: 42.68px;
+  left: calc(50% - 186px/2 - 302px);
+  top: calc(50% - 42.68px/2 + 337.34px);
+
   background: #11334D;
   border-radius: 10px;
 
   font-family: 'Ubuntu';
-  font-style: 'bold';
+  font-style: normal;
   font-weight: 700;
   font-size: 15.5217px;
   line-height: 18px;
@@ -153,7 +148,4 @@ button{
 }
 button:hover{
   background: #0f2b41;
-}
-#btn-subir{
-  margin: 30px;
 }

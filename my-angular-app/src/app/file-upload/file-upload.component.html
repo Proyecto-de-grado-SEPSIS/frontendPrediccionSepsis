@@ -1,8 +1,47 @@
-<div>
-    <input type="file" (change)="onFileSelected($event)">
-    <button (click)="onUpload()" [disabled]="!selectedFile">Subir</button>
+<div class="title">
+  <h1 id="titulo" >Sistema de<img id="logo" src="../../assets/Logo.svg" alt="Escudo"></h1>
+  <br>
+  <h1> predicción de sepsis </h1>
+
+  <hr id="separador">
+</div>
+
+<div [@openClose]="isOpen ? 'open' : 'closed'">
+  <div id="pregunta">
+    <h3>Cargar archivos</h3>
   </div>
-  
-    <div *ngFor="let image of allImages" class="images">
-      <img class="image" [src]="image.data" alt="Image">
-    </div>
+  <p class="p_desc">Es importante recordar que solo se aceptan archivos csv, con la estructura estableciada anteriormente</p>
+  <img class="img_compl" src="../../assets/undraw_add_files.svg" alt="">
+  <div class="custom-dropzone" accept=".csv" ngx-dropzone (change)="onFileSelected($event)">
+    <ngx-dropzone-label>
+      <img class="file_icon" src="../../assets/iconFile.svg" alt="">
+      <p class="p_compl">Arrastra tu documento aqui.</p>
+      <img src="../../assets/complemento_dragdrop.svg" alt="">
+      <button>seleccionar archivo</button>
+    </ngx-dropzone-label>
+    <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" [removable]="true" *ngFor="let f of files" [file]="f" (removed)="onRemove(f)"></ngx-dropzone-image-preview>
+  </div>
+  <button id="btn-subir" (click)="onUpload()" *ngIf="files[0]" >Subir</button>
+</div>
+
+
+<div *ngFor="let image of allImages" class="images">
+
+  <img class="image" [src]="image.data" alt="Image" (click)="openUp(image)">
+  <p class="p_desc" *ngIf="image.name ===  'barplot'">La imagen muestra un gráfico de barras que representa el recuento de los valores en la columna "Sexo" del dataset. El eje x del gráfico corresponde a las categorías de sexo, mientras que el eje y representa el recuento de cada categoría. El gráfico está diseñado en formato de barras, donde la altura de cada barra representa la frecuencia o recuento de cada categoría de sexo en el dataset.</p>
+  <p class="p_desc" *ngIf="image.name ===  'lineplot'">La imagen muestra un gráfico de líneas que representa la evolución de la presión sistólica y diastólica a lo largo de un periodo de tiempo. En el gráfico, el eje x representa el índice, que puede ser un indicador de tiempo o cualquier otro ordenamiento lógico de los datos. El eje y representa el valor de la presión, que se mide en una escala específica.</p>
+  <p class="p_desc" *ngIf="image.name ===  'boxplot'">La imagen muestra un gráfico de caja (boxplot) que representa la distribución de las variables clínicas de "Frecuencia Cardiaca" y "Frecuencia Respiratoria". El gráfico de caja proporciona información estadística sobre la distribución de los valores de las variables. Cada caja en el gráfico representa el rango intercuartil (IQR), es decir, el rango entre el primer cuartil (Q1) y el tercer cuartil (Q3). La línea en el medio de la caja representa la mediana. Los "bigotes" o líneas verticales que se extienden desde la caja indican el rango de los valores excluyendo los valores atípicos. Los valores atípicos se muestran como puntos individuales más allá de los bigotes.</p>
+  <p class="p_desc" *ngIf="image.name ===  'distribution'">La imagen muestra la distribución de la variable objetivo llamada "outside". Es un gráfico que combina un histograma y una estimación de densidad kernel (KDE).
+    El histograma representa la frecuencia relativa de los valores de "outside". Cada barra del histograma muestra la cantidad de observaciones que caen en un intervalo particular de valores. La altura de las barras indica la frecuencia relativa de los valores en cada intervalo.</p>
+  <p class="p_desc" *ngIf="image.name ===  'violinplot'">La imagen muestra la distribución de la variable "Frecuencia Cardiaca" dividida por categorías de la variable objetivo "outside". Se utiliza un gráfico de violín para representar estas distribuciones. Cada violín en el gráfico representa la distribución de la variable "Frecuencia Cardiaca" para una categoría específica de "outside". La forma del violín muestra la densidad de los valores de la variable en cada categoría. Las partes más anchas del violín indican una mayor concentración de valores, mientras que las partes más estrechas indican una menor concentración.</p>
+  <p class="p_desc" *ngIf="image.name ===  'violinplot2'">La imagen muestra la distribución de la variable "Frecuencia Respiratoria" dividida por categorías de la variable objetivo "outside". Se utiliza un gráfico de violín para representar estas distribuciones.
+    Cada violín en el gráfico representa la distribución de la variable "Frecuencia Respiratoria" para una categoría específica de "outside". La forma del violín muestra la densidad de los valores de la variable en cada categoría. Las partes más anchas del violín indican una mayor concentración de valores, mientras que las partes más estrechas indican una menor concentración.</p>
+  <p class="p_desc" *ngIf="image.name ===  'violinplot3'">El gráfico muestra la distribución de la Presión Sistólica para diferentes categorías de la variable objetivo 'outside'. Cada violín representa la densidad de valores de Presión Sistólica, donde el ancho del violín indica la densidad en esa región. Los violines se dividen según la categoría 'outside', lo que permite comparar la distribución de la Presión Sistólica entre las categorías.</p>
+  <div id="pregunta" *ngIf="image.name ===  'violinplot3'">
+    <h3>Resultado Modelo</h3>
+  </div>
+  <p class="p_desc" *ngIf="image.name ===  'confusion_matrix_logistic'">El gráfico muestra la Matriz de Confusión del modelo de regresión logistica mediante un mapa de calor. Cada celda del mapa de calor representa el número de instancias clasificadas en una categoría específica. Los valores numéricos en cada celda indican la cantidad de instancias clasificadas correctamente o incorrectamente. El mapa de calor está coloreado en tonos de azul, donde los tonos más oscuros indican una mayor frecuencia. Además, se han agregado anotaciones en cada celda para facilitar la lectura de los valores numéricos. El título del gráfico muestra las métricas de precisión, recall y F1 del modelo de regresión logistica.</p>
+  <p class="p_desc" *ngIf="image.name ===  'confusion_matrix_decision_tree'">El gráfico muestra la Matriz de Confusión del modelo de Árbol de Decisión mediante un mapa de calor. Cada celda del mapa de calor representa el número de instancias clasificadas en una categoría específica. Los valores numéricos en cada celda indican la cantidad de instancias clasificadas correctamente o incorrectamente. El mapa de calor está coloreado en tonos de azul, donde los tonos más oscuros indican una mayor frecuencia. Además, se han agregado anotaciones en cada celda para facilitar la lectura de los valores numéricos. El título del gráfico muestra las métricas de precisión, recall y F1 del modelo de Árbol de Decisión.</p>
+  <p class="p_desc" *ngIf="image.name ===  'roc_curve'">En el gráfico, se traza una línea diagonal punteada que representa la línea de referencia donde no hay discriminación entre las clases. Los puntos en la curva ROC representan los diferentes umbrales de clasificación utilizados para evaluar los modelos. Cuanto más cerca esté la curva ROC del vértice superior izquierdo del gráfico, mejor será el desempeño del modelo, ya que indicará una mayor tasa de verdaderos positivos y una menor tasa de falsos positivo</p>
+</div>
+

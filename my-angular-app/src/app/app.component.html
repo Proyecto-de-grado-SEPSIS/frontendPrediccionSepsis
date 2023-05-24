@@ -1,13 +1,12 @@
-<h1>Proyecto de grado</h1>
-<h2>Proyecto de prediccion de sepsis en Colombia</h2>
-<h3>Integrantes:</h3>
-<ul>
-    <li>Julian Cardenas Garcia</li>
-    <li>Nicolas Ramos Bohorquez</li>
-    <li>Sergio Triana Bobadilla</li>
-    <li>Richard Fonseca Triviño</li>
-</ul>
-<app-file-upload></app-file-upload>
+<nav class="nav-bar">
 
+  <ul>
+    <li class="li_op" id="logout" (click)="logOut()">LOGOUT</li>
+    <li class="li_op"><a (click)="irAlAboutUs()">ABOUT US</a></li>
+    <li class="li_op"><a (click)="irAlDashboard()">DASHBOARD</a></li>
+    <li class="li_op"><a (click)="irAlHome()">HOME</a></li>
+    <img src="../assets/logo_navbar.svg" alt="logo_navbar">
+  </ul>
+</nav>
 
 <router-outlet></router-outlet>

@@ -42,13 +42,17 @@
   display: block;
   border: 1px solid #061528;
 }
-
+.pregunta{
+  display: block;
+  width: fit-content;
+  box-sizing:border-box;
+  margin-left: 0%;
+}
 #pregunta{
   display: block;
   width: fit-content;
   box-sizing:border-box;
   margin-left: 0%;
-  color: #061528;
 }
 h3{
   width: fit-content;
@@ -65,7 +69,7 @@ h3{
   color: #061528;
 }
 
-.img_compl{
+img{
   float: right;
 }
 .docs{
@@ -96,7 +100,11 @@ h3{
  width: 50%;
  padding: 0px 30px;
 }
+mat-card{
+  margin: 0px 10px;
+  box-shadow: none;
 
+}
 .nombre_prof{
   background: white;
   font-family: 'Ubuntu';
@@ -107,53 +115,4 @@ h3{
   letter-spacing: 0.25px;
   color: #061528;
 
-}
-
-.custom-dropzone{
-  width: 658px;
-  height: 388px;
-  border: 1px solid #061528;
-  margin: 30px;
-
-}
-.file_icon{
-  margin: auto;
-}
-.p_compl{
-  font-family: 'Ubuntu';
-  font-style: normal;
-  font-weight: 300;
-  font-size: 16px;
-  line-height: 22px;
-  /* or 138% */
-
-  letter-spacing: 0.25px;
-
-  color: #061528;
-}
-button{
-  height: 43px;
-  left: 345px;
-  right: 883px;
-  top: calc(50% - 43px/2 + 117.5px);
-  display: block;
-  background: #11334D;
-  border-radius: 10px;
-
-  font-family: 'Ubuntu';
-  font-style: 'bold';
-  font-weight: 700;
-  font-size: 15.5217px;
-  line-height: 18px;
-  text-align: center;
-  text-transform: uppercase;
-
-  color: #FFFFFF;
-  box-shadow: none;
-}
-button:hover{
-  background: #0f2b41;
-}
-#btn-subir{
-  margin: 30px;
 }

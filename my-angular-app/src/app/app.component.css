@@ -1,0 +1,62 @@
+#logout{
+  color: #FA0000;
+  display: block;
+
+  text-align: center;
+  padding: 21px 19px;
+  text-decoration: none;
+
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 18px;
+  /* identical to box height, or 112% */
+
+  text-align: center;
+  text-transform: uppercase;
+}
+.nav-bar{
+  background-color: #FFFFFF;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #FFFFFF;
+  height: 61px;
+
+}
+
+.li_op {
+  float: right;
+
+}
+
+li a {
+  display: block;
+  color: #061528;
+  text-align: center;
+  padding: 21px 16px;
+  text-decoration: none;
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 18px;
+/* identical to box height, or 112% */
+
+  text-align: center;
+  text-transform: uppercase;
+
+}
+
+li a:hover {
+  background-color: #C5C5C5;
+}
+
+#logout:hover {
+  background-color: #C5C5C5;
+}
+
